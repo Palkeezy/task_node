@@ -1,0 +1,5 @@
+
+[4mSequelize CLI [Node: 10.15.3, CLI: 5.5.1, ORM: 5.21.2][24m
+
+migrations folder at "D:\task_node\migrations" already exists.
+New migration was created at [94mD:\task_node\migrations\20191107091347-Users.js[39m .
