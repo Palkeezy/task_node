@@ -1,4 +1,6 @@
 'use strict';
+//npx sequelize-cli db:migrate
+//npx sequelize-cli db:migrate:undo
 
 module.exports = {
     up: (queryInterface, Sequelize) => {

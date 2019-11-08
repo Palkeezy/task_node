@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     try {
         const {email, password} = req.body;
 
-        const isUserPresent = await userService.getUserByParams({email, password});
+        const isUserPresent = await userService.getUserByMailAndPass({email, password});
 
         if (!isUserPresent) {
             throw new ErrorHandler('User is not present', 404, 'authUser');

@@ -1,17 +1,20 @@
 'use strict';
+//npx sequelize-cli db:seed:all
+//npx sequelize-cli db:seed:undo
+
 const {DB_TABLES} = require('../constants');
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.bulkInsert(DB_TABLES.USER, [
             {
                 email: 'test@demo.com',
-                password: '1',
+                password: 'Ghbdsn31',
                 firstName: 'John',
                 lastName: 'Wick'
             },
             {
                 email: 'vitalik@demo.com',
-                password: '2',
+                password: 'Ghbdsn31',
                 firstName: 'Vitalii',
                 lastName: 'Palka'
             }], {});

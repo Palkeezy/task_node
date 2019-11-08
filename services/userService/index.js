@@ -4,3 +4,4 @@ module.exports.getUserByEmail = require('./getUserByEmail');
 module.exports.getUserById = require('./getUserById');
 module.exports.changeUserPassword = require('./changeUserPassword');
 module.exports.updateUser = require('./updateUser');
+module.exports.getUserByMailAndPass = require('./getUserByMailAndPass');
