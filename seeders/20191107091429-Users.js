@@ -13,10 +13,22 @@ module.exports = {
                 lastName: 'Wick'
             },
             {
+                email: 'viitalik3108@gmail.com',
+                password: 'Ghbdsn412',
+                firstName: 'Vitalii',
+                lastName: 'Manone'
+            },
+            {
                 email: 'vitalik@demo.com',
                 password: 'Ghbdsn31',
                 firstName: 'Vitalii',
                 lastName: 'Palka'
+            },
+            {
+                email: 'dev.palkeezyy@gmail.com',
+                password: 'oiRedLa1412',
+                firstName: 'Palkeezy',
+                lastName: 'Vika'
             }], {});
     },
 

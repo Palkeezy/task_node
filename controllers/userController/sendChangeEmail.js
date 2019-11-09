@@ -13,7 +13,9 @@ module.exports = async (req, res, next) => {
                 id, email
             }
         });
-        if (!isPresent) throw new Error('User is not present');
+        if (!isPresent) {
+            throw new ErrorHandler('user is not present', 403, 'sendChangeEmail');
+        }
 
         const info = await sendEmailToChangePassword(email);
 

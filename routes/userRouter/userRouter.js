@@ -11,6 +11,8 @@ router.put('/:user_id',
     userMiddleware.getUserFromTokenMiddleware,
     userController.updateUser);
 router.get('/password', userController.sendChangeEmail);
-router.post('/password', userController.changeUserPassword);
+router.post('/password/:token',
+    userMiddleware.userPasswordValidationMiddleware,
+    userController.changeUserPassword);
 
 module.exports = router;

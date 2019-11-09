@@ -6,6 +6,7 @@ const fileUpload = require('express-fileupload');
 const db = require('./dataBase').getInstance();
 db.setModels();
 
+app.use
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(fileUpload({}));
