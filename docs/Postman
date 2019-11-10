@@ -1,0 +1,42 @@
+(auth user)
+POST, http://localhost:3000/auth    |    body: {
+                                          	"email":"",
+                                          	"password":""
+                                          }
+return token
+______________________________________________________________
+(create user)
+POST, http://localhost:3000/user    |    body: {
+                                          	"email":"",
+                                          	"password":""
+                                          	"firstName":""
+                                          	"lastName":""
+                                          }
+______________________________________________________________
+(send message to mail for reset password)
+GET, http://localhost:3000/user/password    |   HEADER Authorization: token
+
+
+______________________________________________________________
+(update user firstName, lastName)
+PUT, http://localhost:3000/user/:user_id    |    HEADER Authorization: token
+                                          body: {
+                                          	"firstName":""
+                                          	"lastName":""
+                                          }
+_______________________________________________________________
+(method from emailMessage to get resetPasswordToken)
+GET, http://localhost:3000/user/password/:token     |   token = resetTokenFromMail
+
+return token  (resetTokenFromMail)
+_______________________________________________________________
+(reset password)
+PUT, http://localhost:3000/user/password/:token     |   token = resetTokenFromMail
+                                          body: {
+                                                	"password":"",
+                                                	"newPassword":"",
+                                                	"confirmNewPassword":""
+                                                }
+_______________________________________________________________
+
+

@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "feb21de0-2351-4d72-9d8b-2a71323c14e4",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"dev.palkeezy@gmail.com\",\n\t\"password\":\"QscGdjt123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "vitalik11111@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "QQWasa1337",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "Vitalii",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Palka",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user info",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiUXNjR2RqdDEyMyIsImZpcnN0TmFtZSI6IndlcmV3cXJxd3IiLCJsYXN0TmFtZSI6InF3ZXdlcXdlcnJ3ZSIsImlhdCI6MTU3MzQwNzQzNiwiZXhwIjoxNTczNDkzODM2fQ.Ye_y23lPJpTvWDBgZSVXM8GSJNzNJZ9xcM0bFz_30_o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Elmar\",\n\t\"lastName\":\"Skorseze\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendMailToChangePass",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiUXNjR2RqdDEyMyIsImZpcnN0TmFtZSI6IndlcmV3cXJxd3IiLCJsYXN0TmFtZSI6InF3ZXdlcXdlcnJ3ZSIsImlhdCI6MTU3MzQwNzQzNiwiZXhwIjoxNTczNDkzODM2fQ.Ye_y23lPJpTvWDBgZSVXM8GSJNzNJZ9xcM0bFz_30_o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/user/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changePassword",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\":\"QscGdjt123\",\n\t\"newPassword\":\"QQWASA1337\",\n\t\"confirmNewPassword\":\"QQWASA1337\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsImlhdCI6MTU3MzQwNzYyMCwiZXhwIjoxNTczNDExMjIwfQ.PJrMlGX3PvS8uvHBzjt5Xno45wYOfjG6tPIlNRI8euQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"password",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsImlhdCI6MTU3MzQwNzYyMCwiZXhwIjoxNTczNDExMjIwfQ.PJrMlGX3PvS8uvHBzjt5Xno45wYOfjG6tPIlNRI8euQ"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
