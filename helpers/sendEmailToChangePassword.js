@@ -30,7 +30,7 @@ function buildTemplate(user) {
          Someone wants to change password on localhost:3000.
          <br>
          If its you please click 
-         <form action="http://localhost:3000/user/password/${refreshToken}" method="post">
+         <form action="http://localhost:3000/user/password/${refreshToken}" method="get">
          <input type="submit" value="here"> 
          `;
     return html;

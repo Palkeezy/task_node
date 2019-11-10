@@ -4,7 +4,7 @@ const {userPasswordValidation} = require('../../validators');
 
 module.exports = async (req, res, next) => {
     const userPasswordsToUpdate = req.body;
-    console.log(userPasswordsToUpdate);
+
     const isUserPasswordValid = joi.validate(userPasswordsToUpdate, userPasswordValidation);
 
     if (isUserPasswordValid.error) {
