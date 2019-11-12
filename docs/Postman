@@ -14,9 +14,9 @@ POST, http://localhost:3000/user    |    body: {
                                           }
 ______________________________________________________________
 (send message to mail for reset password)
-GET, http://localhost:3000/user/password    |   HEADER Authorization: token
-
-
+POST, http://localhost:3000/user/password    |   body: {
+                                                    "email":"",
+                                               }
 ______________________________________________________________
 (update user firstName, lastName)
 PUT, http://localhost:3000/user/:user_id    |    HEADER Authorization: token
@@ -33,7 +33,6 @@ _______________________________________________________________
 (reset password)
 PUT, http://localhost:3000/user/password/:token     |   token = resetTokenFromMail
                                           body: {
-                                                	"password":"",
                                                 	"newPassword":"",
                                                 	"confirmNewPassword":""
                                                 }

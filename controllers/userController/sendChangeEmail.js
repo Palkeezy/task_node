@@ -1,16 +1,14 @@
 const db = require('../../dataBase').getInstance();
 const {sendEmailToChangePassword} = require('../../helpers');
 const ErrorHandler = require('../../error/ErrorHandler');
-const {tokenVerification} = require('../../helpers');
 
 module.exports = async (req, res, next) => {
     try {
         const UserModel = db.getModel('User');
-        const token = req.get('Authorization');
-        const {id, email} = tokenVerification(token);
+        const {email} = req.body;
         const isPresent = await UserModel.findOne({
             where: {
-                id, email
+                email
             }
         });
         if (!isPresent) {

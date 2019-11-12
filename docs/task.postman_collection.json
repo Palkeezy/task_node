@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\":\"dev.palkeezy@gmail.com\",\n\t\"password\":\"QscGdjt123\"\n}",
+					"raw": "{\n\t\"email\":\"dev.palkeezy@gmail.com\",\n\t\"password\":\"QQWasa1337\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -109,7 +109,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiUXNjR2RqdDEyMyIsImZpcnN0TmFtZSI6IndlcmV3cXJxd3IiLCJsYXN0TmFtZSI6InF3ZXdlcXdlcnJ3ZSIsImlhdCI6MTU3MzQwNzQzNiwiZXhwIjoxNTczNDkzODM2fQ.Ye_y23lPJpTvWDBgZSVXM8GSJNzNJZ9xcM0bFz_30_o",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiUVFXQVNBMTMzNyIsImZpcnN0TmFtZSI6IkVsbWFyIiwibGFzdE5hbWUiOiJTa29yc2V6ZSIsImlhdCI6MTU3MzQ5MDUwOCwiZXhwIjoxNTczNTc2OTA4fQ.uUMldEI0AH0OZ-WVaGGJNtwu2krQs-0nWQhrNUosJ4Y",
 						"type": "text"
 					}
 				],
@@ -140,14 +140,24 @@
 		{
 			"name": "sendMailToChangePass",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiUXNjR2RqdDEyMyIsImZpcnN0TmFtZSI6IndlcmV3cXJxd3IiLCJsYXN0TmFtZSI6InF3ZXdlcXdlcnJ3ZSIsImlhdCI6MTU3MzQwNzQzNiwiZXhwIjoxNTczNDkzODM2fQ.Ye_y23lPJpTvWDBgZSVXM8GSJNzNJZ9xcM0bFz_30_o",
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"dev.palkeezy@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:3000/user/password",
 					"protocol": "http",
@@ -170,7 +180,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"password\":\"QscGdjt123\",\n\t\"newPassword\":\"QQWASA1337\",\n\t\"confirmNewPassword\":\"QQWASA1337\"\n}",
+					"raw": "{\n\t\"newPassword\":\"QQWasa1331\",\n\t\"confirmNewPassword\":\"QQWasa1331\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -178,7 +188,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/user/password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsImlhdCI6MTU3MzQwNzYyMCwiZXhwIjoxNTczNDExMjIwfQ.PJrMlGX3PvS8uvHBzjt5Xno45wYOfjG6tPIlNRI8euQ",
+					"raw": "http://localhost:3000/user/password/:token",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -187,9 +197,43 @@
 					"path": [
 						"user",
 						"password",
-						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsImlhdCI6MTU3MzQwNzYyMCwiZXhwIjoxNTczNDExMjIwfQ.PJrMlGX3PvS8uvHBzjt5Xno45wYOfjG6tPIlNRI8euQ"
+						":token"
+					],
+					"variable": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsImlhdCI6MTU3MzU1NjgzNiwiZXhwIjoxNTczNTYwNDM2fQ.VfFNU04WILZ_-exq4zRJzPZ20g0YVKch08y1xDudE-I"
+						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "link from mail to refreshPassword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/password/:token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"password",
+						":token"
+					],
+					"variable": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGV2LnBhbGtlZXp5QGdtYWlsLmNvbSIsImlhdCI6MTU3MzU1NjgzNiwiZXhwIjoxNTczNTYwNDM2fQ.VfFNU04WILZ_-exq4zRJzPZ20g0YVKch08y1xDudE-I"
+						}
+					]
+				},
+				"description": "on this request we have to display the form for new user password"
 			},
 			"response": []
 		}

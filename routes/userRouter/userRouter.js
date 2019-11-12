@@ -10,7 +10,7 @@ router.post('/',
 router.put('/:user_id',
     userMiddleware.getUserFromTokenMiddleware,
     userController.updateUser);
-router.get('/password', userController.sendChangeEmail);
+router.post('/password', userController.sendChangeEmail);
 router.get('/password/:token', userController.refreshPassword);
 router.put('/password/:token',
     userMiddleware.userPasswordValidationMiddleware,

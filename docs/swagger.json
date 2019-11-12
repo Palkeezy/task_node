@@ -1,0 +1,308 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "task_node information",
+    "version": "1.0.0",
+    "title": "task_node API"
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/auth": {
+      "post": {
+        "tags": [
+          "auth User"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "auth user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUser"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid email/password or user is not undefined"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Create user",
+        "description": "",
+        "operationId": "createUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "user info",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            },
+            "headers": {
+              "Authorization": {
+                "type": "token"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data"
+          }
+        }
+      }
+    },
+    "/user/password": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "send email to refresh password",
+        "operationId": "refresh password",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "user mail",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userMail"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "User is not defined"
+          }
+        }
+      }
+    },
+    "/user/password/{refreshToken}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "link from mail to refresh password",
+        "operationId": "on this request we have to display the form for new user password",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "User is not defined"
+          }
+        }
+      }
+    },
+    "/user/{user_id}": {
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "Updated user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "updateUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "user_id that need to be updated",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateUser"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid data"
+          }
+        }
+      }
+    },
+    "/user/password/{refreshT}": {
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "change password",
+        "description": "refresh password",
+        "operationId": "updateUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "refreshT",
+            "in": "path",
+            "description": "refreshToken to change password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "new password obj",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/refreshPassword"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "authUser": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "updateUser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "userMail": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "refreshPassword": {
+      "type": "object",
+      "properties": {
+        "newPassword": {
+          "type": "string"
+        },
+        "confirmNewPassword": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "schemes": [
+    "http"
+  ]
+}
